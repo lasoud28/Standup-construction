@@ -20,24 +20,41 @@
       margin-bottom: 20px;
     }
 
-    .services {
+    .services, .products, .contact {
       background: white;
       padding: 15px;
       border-radius: 5px;
       box-shadow: 0 0 10px #ccc;
-      margin-top: 30px;
+      margin-top: 40px;
     }
 
     .video {
       margin-top: 40px;
     }
 
-    .contact {
-      margin-top: 40px;
-      background-color: #fff;
-      padding: 15px;
+    .product-item {
+      margin-bottom: 30px;
+    }
+
+    .product-item img {
+      max-width: 300px;
+      width: 100%;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    .buy-button {
+      display: inline-block;
+      background: darkgreen;
+      color: white;
+      padding: 10px 15px;
       border-radius: 5px;
-      box-shadow: 0 0 10px #ccc;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .buy-button:hover {
+      background: green;
     }
   </style>
 </head>
@@ -59,6 +76,33 @@
       <li>Concrete Work</li>
       <li>Sales of Good Construction Equipment</li>
     </ul>
+  </div>
+
+  <!-- ✅ Products for Sale Section -->
+  <div class="products">
+    <h2>Products for Sale</h2>
+
+    <!-- Product 1 -->
+    <div class="product-item">
+      <img src="https://images.unsplash.com/photo-1581092919535-0badd2d6a98f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Cement Mixer">
+      <h3>Cement Mixer</h3>
+      <p>Heavy-duty electric cement mixer for construction projects.</p>
+      <p><strong>Price:</strong> $450.00</p>
+      <a href="mailto:info@standupconstruction.com?subject=Interested in Cement Mixer" class="buy-button">
+        Contact to Buy
+      </a>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-item">
+      <img src="https://images.unsplash.com/photo-1603531736412-847d1b77b701?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Drill Machine">
+      <h3>Electric Drill Machine</h3>
+      <p>Compact and powerful drill for professional and home use.</p>
+      <p><strong>Price:</strong> $120.00</p>
+      <a href="mailto:info@standupconstruction.com?subject=Interested in Drill Machine" class="buy-button">
+        Contact to Buy
+      </a>
+    </div>
   </div>
 
   <!-- ✅ Embedded YouTube Video -->
