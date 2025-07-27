@@ -1,134 +1,250 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Stand Up Construction</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stand Up Construction - Trusted construction solutions for homes and commercial spaces">
+  <title>Stand Up Construction | Building Strong & Smart</title>
   <style>
+    :root {
+      --primary-color: #006400; /* darkgreen */
+      --secondary-color: #228B22; /* green */
+      --text-color: #333;
+      --light-bg: #f3f3f3;
+      --white: #fff;
+      --shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
     body {
       font-family: Arial, sans-serif;
-      background-color: #f3f3f3;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 20px;
     }
 
-    h1 {
-      color: darkgreen;
+    header {
+      text-align: center;
+      padding: 30px 0;
     }
 
-    img {
+    h1 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-top: 0;
+    }
+
+    .hero-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .hero-images img {
       width: 100%;
       max-width: 600px;
+      height: auto;
       border: 2px solid #333;
-      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: var(--shadow);
     }
 
     .section {
-      background: white;
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px #ccc;
-      margin-top: 30px;
+      background: var(--white);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin: 30px 0;
     }
 
-    .video {
-      margin-top: 40px;
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      margin: 40px 0;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
     }
 
     .product-item {
-      margin-bottom: 30px;
+      text-align: center;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
     }
 
     .product-item img {
-      width: 220px;
+      width: 100%;
+      max-width: 220px;
       height: auto;
       border: 1px solid #999;
-      margin-bottom: 10px;
+      border-radius: 4px;
+      margin-bottom: 15px;
     }
 
     .buy-button {
       display: inline-block;
-      margin-top: 5px;
-      padding: 8px 12px;
-      background-color: darkgreen;
-      color: white;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: var(--primary-color);
+      color: var(--white);
       text-decoration: none;
       border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
     }
 
     .buy-button:hover {
-      background-color: green;
+      background-color: var(--secondary-color);
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
     }
 
     footer {
       text-align: center;
       font-size: 14px;
-      margin-top: 40px;
+      margin-top: 50px;
+      padding: 20px;
       color: #555;
+      background-color: var(--white);
+      border-top: 1px solid #ddd;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      
+      .section {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Stand Up Construction</h1>
-  <p>We build strong and smart. Trusted construction solutions for homes and commercial spaces.</p>
+  <div class="container">
+    <header>
+      <h1>Welcome to Stand Up Construction</h1>
+      <p>We build strong and smart. Trusted construction solutions for homes and commercial spaces.</p>
+    </header>
 
-  <!-- ✅ Real Construction Images -->
-  <img src="https://images.bayut.com/thumbnails/783865096-800x600.webp" alt="Ongoing Construction Project with Workers">
-  <img src="https://images.bayut.com/thumbnails/792168362-800x600.webp" alt="Completed Commercial Building">
-
-  <!-- ✅ Services Section -->
-  <div class="section">
-    <h2>Our Services</h2>
-    <ul>
-      <li>Complete Home Renovation</li>
-      <li>Custom New Construction Projects</li>
-      <li>Roof and Tile Installation</li>
-      <li>Concrete Framing and Pouring</li>
-      <li>Sales of Durable Construction Equipment</li>
-    </ul>
-  </div>
-
-  <!-- ✅ Product Sales Section -->
-  <div class="section">
-    <h2>Products for Sale</h2>
-
-    <!-- Product 1 -->
-    <div class="product-item">
-      <img src="https://www.bing.com/th?id=OPHS.NdNMm%2b5MRMOWsg474C474&o=5&pid=21.1&w=128&h=168&qlt=100&dpr=1.3&bw=6&bc=FFFFFF" alt="Portable Cement Mixer">
-      <h3>Heavy-Duty Cement Mixer</h3>
-      <p>Reliable and portable mixer for fast and efficient concrete mixing.</p>
-      <p><strong>Price:</strong> $450.00 <br>
-        <a href="mailto:info@standupconstruction.com?subject=Purchase%20Cement%20Mixer" class="buy-button">Request Purchase</a>
-      </p>
+    <!-- Hero Images -->
+    <div class="hero-images">
+      <img src="https://images.bayut.com/thumbnails/783865096-800x600.webp" alt="Construction workers building a house" loading="lazy">
+      <img src="https://images.bayut.com/thumbnails/792168362-800x600.webp" alt="Modern commercial building with glass facade" loading="lazy">
     </div>
 
-    <!-- Product 2 -->
-    <div class="product-item">
-      <img src="https://www.bing.com/th?id=OPHS.J%2fOD%2fyuUAH%2bH8A474C474&o=5&pid=21.1&w=140&h=180&qlt=100&dpr=1.3&c=8&pcl=f5f5f5" alt="Power Drill Machine">
-      <h3>High-Speed Drill Machine</h3>
-      <p>Efficient electric drill for wood, metal, and masonry work.</p>
-      <p><strong>Price:</strong> $120.00 <br>
-        <a href="mailto:info@standupconstruction.com?subject=Purchase%20Drill%20Machine" class="buy-button">Request Purchase</a>
-      </p>
+    <!-- Services Section -->
+    <div class="section">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Complete Home Renovation</li>
+        <li>Custom New Construction Projects</li>
+        <li>Roof and Tile Installation</li>
+        <li>Concrete Framing and Pouring</li>
+        <li>Sales of Durable Construction Equipment</li>
+      </ul>
     </div>
+
+    <!-- Product Sales Section -->
+    <div class="section">
+      <h2>Products for Sale</h2>
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-item">
+          <img src="https://www.bing.com/th?id=OPHS.NdNMm%2b5MRMOWsg474C474&o=5&pid=21.1&w=128&h=168&qlt=100&dpr=1.3&bw=6&bc=FFFFFF" alt="Portable cement mixer on construction site" loading="lazy">
+          <h3>Heavy-Duty Cement Mixer</h3>
+          <p>Reliable and portable mixer for fast and efficient concrete mixing.</p>
+          <p><strong>Price:</strong> $450.00</p>
+          <a href="mailto:info@standupconstruction.com?subject=Purchase%20Cement%20Mixer" class="buy-button">Request Purchase</a>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-item">
+          <img src="https://www.bing.com/th?id=OPHS.J%2fOD%2fyuUAH%2bH8A474C474&o=5&pid=21.1&w=140&h=180&qlt=100&dpr=1.3&c=8&pcl=f5f5f5" alt="Power drill machine with accessories" loading="lazy">
+          <h3>High-Speed Drill Machine</h3>
+          <p>Efficient electric drill for wood, metal, and masonry work.</p>
+          <p><strong>Price:</strong> $120.00</p>
+          <a href="mailto:info@standupconstruction.com?subject=Purchase%20Drill%20Machine" class="buy-button">Request Purchase</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="section">
+      <h2>Watch Our Team in Action</h2>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/l0F2bCEKQMM" 
+          title="Stand Up Construction Team Video" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section">
+      <h2>Get in Touch</h2>
+      <div class="contact-info">
+        <div>
+          <h3>Email</h3>
+          <p><a href="mailto:info@standupconstruction.com">info@standupconstruction.com</a></p>
+        </div>
+        <div>
+          <h3>Phone</h3>
+          <p>(123) 456-7890</p>
+        </div>
+        <div>
+          <h3>Office Address</h3>
+          <p>225 Riverside Drive<br>New York, NY 10037</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Stand Up Construction. All rights reserved.</p>
+    </footer>
   </div>
 
-  <!-- ✅ Embedded YouTube Video -->
-  <div class="video">
-    <h2>Watch Our Team in Action</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/l0F2bCEKQMM" 
-      title="Stand Up Construction Team Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-      encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-    </iframe>
-  </div>
-
-  <!-- ✅ Contact Section -->
-  <div class="section">
-    <h2>Get in Touch</h2>
-    <p><strong>Email:</strong> <a href="mailto:info@standupconstruction.com">info@standupconstruction.com</a></p>
-    <p><strong>Phone:</strong> (123) 456-7890</p>
-    <p><strong>Office Address:</strong> 225 Riverside Drive, New York, NY 10037</p>
-  </div>
-
-  <footer>
-    &copy; 2025 Stand Up Construction. All rights reserved.
-  </footer>
+  <script>
+    // Automatically update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
