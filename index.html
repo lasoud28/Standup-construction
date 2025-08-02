@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Stand Up Construction - Trusted construction solutions for homes and commercial spaces">
   <title>Stand Up Construction | Building Strong & Smart</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
   <style>
     :root {
-      --primary-color: #006400; /* darkgreen */
-      --secondary-color: #228B22; /* green */
-      --accent-color: #FFC439; /* PayPal yellow */
+      --primary-color: #006400;
+      --secondary-color: #228B22;
+      --accent-color: #FFC439;
       --text-color: #333;
       --light-bg: #f3f3f3;
       --white: #fff;
@@ -152,7 +151,7 @@
 
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       margin: 40px 0;
@@ -245,213 +244,62 @@
       margin: 25px 0 15px;
       display: flex;
       justify-content: center;
+      min-height: 50px;
     }
     
-    .paypal-button-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: var(--transition);
-      z-index: 10;
-      border-radius: 15px;
-    }
-    
-    .product-item:hover .paypal-button-overlay {
-      opacity: 1;
-    }
-    
-    .paypal-button-overlay .paypal-button {
-      padding: 12px 30px;
-      background: var(--accent-color);
-      color: #111;
-      font-weight: bold;
-      border-radius: 6px;
-      border: none;
-      font-size: 17px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .paypal-button-overlay .paypal-button:hover {
-      background: #f2bb35;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    }
-
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .contact-card {
-      background: #f9f9f9;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: center;
-      transition: var(--transition);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-card:hover {
-      transform: translateY(-8px);
-      background: #f0f8f0;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .contact-card i {
-      font-size: 3rem;
-      color: var(--primary-color);
-      margin-bottom: 20px;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 16px;
-      margin-top: 60px;
-      padding: 40px 20px;
-      color: #555;
-      background: linear-gradient(to bottom, #f0f8f0, #e0f0e0);
-      border-top: 1px solid #ddd;
-      border-radius: 30px 30px 0 0;
-    }
-
-    .payment-methods {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 35px;
-      flex-wrap: wrap;
-    }
-    
-    .payment-method {
-      display: flex;
-      align-items: center;
-      background: #f9f9f9;
-      padding: 12px 25px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      transition: var(--transition);
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-    }
-    
-    .payment-method:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-      border-color: var(--secondary-color);
-    }
-    
-    .payment-method i {
-      font-size: 2rem;
-      margin-right: 12px;
-      color: var(--primary-color);
-    }
-    
-    .paypal-success {
+    .client-id-instructions {
       background: #e8f5e9;
       border-left: 5px solid #4caf50;
       padding: 20px;
       border-radius: 0 12px 12px 0;
       margin: 30px 0;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
     
-    .paypal-success i {
-      color: #4caf50;
-      font-size: 2rem;
-      margin-right: 20px;
-      min-width: 50px;
+    .client-id-instructions h3 {
+      color: #2e7d32;
+      margin-bottom: 15px;
     }
     
-    .payment-section {
+    .client-id-instructions ol {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .client-id-instructions li {
+      margin-bottom: 10px;
+    }
+    
+    .client-id-form {
+      margin-top: 20px;
+      padding: 20px;
       background: #f0f8ff;
-      padding: 30px;
-      border-radius: 15px;
-      margin-top: 40px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .payment-steps {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-    
-    .step {
-      flex: 1;
-      min-width: 220px;
-      text-align: center;
-      padding: 25px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .step-number {
-      width: 50px;
-      height: 50px;
-      background: var(--primary-color);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      font-weight: bold;
-      font-size: 1.4rem;
-      box-shadow: 0 4px 10px rgba(0,100,0,0.2);
-    }
-    
-    .step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      top: 25px;
-      right: -25px;
-      width: 50px;
-      height: 3px;
-      background: var(--secondary-color);
-    }
-    
-    .security-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 25px;
-      background: rgba(76, 175, 80, 0.1);
-      padding: 15px;
       border-radius: 10px;
     }
     
-    .security-badge i {
-      color: #4caf50;
-      font-size: 2rem;
+    .client-id-form input {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 400px;
+      margin: 10px 0;
+      font-size: 16px;
     }
     
-    .paypal-logo {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
+    .client-id-form button {
+      padding: 12px 25px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: var(--transition);
     }
     
-    .paypal-logo img {
-      height: 50px;
+    .client-id-form button:hover {
+      background: var(--secondary-color);
     }
 
     @media (max-width: 768px) {
@@ -465,15 +313,6 @@
       
       .products-grid {
         grid-template-columns: 1fr;
-      }
-      
-      .payment-steps {
-        flex-direction: column;
-        gap: 40px;
-      }
-      
-      .step:not(:last-child)::after {
-        display: none;
       }
       
       h1 {
@@ -515,11 +354,21 @@
     <div class="section">
       <h2>Quality Products for Sale</h2>
       
-      <div class="paypal-success">
-        <i class="fas fa-check-circle"></i>
-        <div>
-          <h3>Secure PayPal Payments Now Working!</h3>
-          <p>We've resolved the payment processing issue. Enjoy seamless transactions with our new integration.</p>
+      <div class="client-id-instructions">
+        <h3><i class="fas fa-info-circle"></i> How to Find Your PayPal Client ID</h3>
+        <ol>
+          <li>Log in to the <a href="https://developer.paypal.com" target="_blank">PayPal Developer Dashboard</a></li>
+          <li>Navigate to <strong>Dashboard</strong> → <strong>My Apps & Credentials</strong></li>
+          <li>Under <strong>REST API apps</strong>, select your app or create a new one</li>
+          <li>Find your <strong>Client ID</strong> under "Sandbox" or "Live" credentials</li>
+          <li>Copy the Client ID and enter it below to activate payments</li>
+        </ol>
+        
+        <div class="client-id-form">
+          <p><strong>Enter Your PayPal Client ID:</strong></p>
+          <input type="text" id="client-id-input" placeholder="Enter your PayPal Client ID">
+          <button id="activate-paypal">Activate PayPal Payments</button>
+          <p id="status-message" style="margin-top: 15px;"></p>
         </div>
       </div>
       
@@ -531,19 +380,15 @@
           <p>Reliable and portable mixer for fast and efficient concrete mixing.</p>
           <span class="price-tag">$450.00</span>
           
-          <!-- Fixed PayPal Button -->
-          <div class="paypal-button-container" id="paypal-button-cement-mixer"></div>
+          <!-- PayPal Button Container -->
+          <div class="paypal-button-container" id="paypal-button-cement-mixer">
+            <p>PayPal payments disabled. Enter your Client ID above to activate.</p>
+          </div>
           
           <!-- Alternative payment option -->
           <a href="mailto:antimouna16@gmail.com?subject=Purchase%20Cement%20Mixer" class="buy-button">
             <i class="fas fa-envelope"></i> Request Purchase
           </a>
-          
-          <div class="paypal-button-overlay">
-            <button class="paypal-button" onclick="document.getElementById('paypal-button-cement-mixer').scrollIntoView({behavior: 'smooth'})">
-              <i class="fab fa-paypal"></i> Pay with PayPal
-            </button>
-          </div>
         </div>
 
         <!-- Product 2 -->
@@ -553,80 +398,15 @@
           <p>Efficient electric drill for wood, metal, and masonry work.</p>
           <span class="price-tag">$120.00</span>
           
-          <!-- Fixed PayPal Button -->
-          <div class="paypal-button-container" id="paypal-button-drill-machine"></div>
+          <!-- PayPal Button Container -->
+          <div class="paypal-button-container" id="paypal-button-drill-machine">
+            <p>PayPal payments disabled. Enter your Client ID above to activate.</p>
+          </div>
           
           <!-- Alternative payment option -->
           <a href="mailto:antimouna16@gmail.com?subject=Purchase%20Drill%20Machine" class="buy-button">
             <i class="fas fa-envelope"></i> Request Purchase
           </a>
-          
-          <div class="paypal-button-overlay">
-            <button class="paypal-button" onclick="document.getElementById('paypal-button-drill-machine').scrollIntoView({behavior: 'smooth'})">
-              <i class="fab fa-paypal"></i> Pay with PayPal
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Payment methods section -->
-      <div class="payment-section">
-        <h3>Secure Payment Processing</h3>
-        <p>All transactions are protected with 256-bit SSL encryption and processed through PayPal's secure payment gateway.</p>
-        
-        <div class="payment-steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h4>Select Product</h4>
-            <p>Choose the item you wish to purchase</p>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <h4>Checkout</h4>
-            <p>Click the PayPal button to proceed</p>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <h4>Complete Payment</h4>
-            <p>Log in to your PayPal account</p>
-          </div>
-          <div class="step">
-            <div class="step-number">4</div>
-            <h4>Order Confirmation</h4>
-            <p>Receive your order details via email</p>
-          </div>
-        </div>
-        
-        <div class="paypal-logo">
-          <i class="fab fa-paypal" style="font-size: 3rem; color: #003087;"></i>
-        </div>
-        
-        <div class="security-badge">
-          <i class="fas fa-shield-alt"></i>
-          <p>PayPal protects your financial information with industry-leading security and fraud prevention systems.</p>
-        </div>
-      </div>
-      
-      <div class="payment-methods">
-        <div class="payment-method">
-          <i class="fab fa-paypal"></i>
-          <span>PayPal</span>
-        </div>
-        <div class="payment-method">
-          <i class="fab fa-cc-visa"></i>
-          <span>Visa</span>
-        </div>
-        <div class="payment-method">
-          <i class="fab fa-cc-mastercard"></i>
-          <span>Mastercard</span>
-        </div>
-        <div class="payment-method">
-          <i class="fab fa-cc-amex"></i>
-          <span>American Express</span>
-        </div>
-        <div class="payment-method">
-          <i class="fab fa-cc-discover"></i>
-          <span>Discover</span>
         </div>
       </div>
     </div>
@@ -646,31 +426,27 @@
     <!-- Contact Section -->
     <div class="section">
       <h2>Get in Touch</h2>
-      <div class="contact-info">
-        <div class="contact-card">
-          <i class="fas fa-envelope"></i>
+      <div class="contact-info" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div class="contact-card" style="background: #f9f9f9; padding: 25px; border-radius: 12px; text-align: center; transition: var(--transition);">
+          <i class="fas fa-envelope" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;"></i>
           <h3>Email</h3>
           <p><a href="mailto:antimouna16@gmail.com">antimouna16@gmail.com</a></p>
         </div>
-        <div class="contact-card">
-          <i class="fas fa-phone"></i>
+        <div class="contact-card" style="background: #f9f9f9; padding: 25px; border-radius: 12px; text-align: center; transition: var(--transition);">
+          <i class="fas fa-phone" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;"></i>
           <h3>Phone</h3>
           <p>(123) 456-7890</p>
         </div>
-        <div class="contact-card">
-          <i class="fas fa-map-marker-alt"></i>
+        <div class="contact-card" style="background: #f9f9f9; padding: 25px; border-radius: 12px; text-align: center; transition: var(--transition);">
+          <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;"></i>
           <h3>Office Address</h3>
           <p>225 Riverside Drive<br>New York, NY 10037</p>
         </div>
       </div>
     </div>
 
-    <footer>
+    <footer style="text-align: center; font-size: 16px; margin-top: 60px; padding: 40px 20px; color: #555; background: linear-gradient(to bottom, #f0f8f0, #e0f0e0); border-top: 1px solid #ddd; border-radius: 30px 30px 0 0;">
       <p>&copy; <span id="year"></span> Stand Up Construction. All rights reserved.</p>
-      <div class="security-badge">
-        <i class="fas fa-lock"></i>
-        <p>Secure payments provided by PayPal</p>
-      </div>
     </footer>
   </div>
 
@@ -678,70 +454,78 @@
     // Automatically update copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
     
-    // PayPal Integration with JavaScript SDK
+    // PayPal Integration
     document.addEventListener('DOMContentLoaded', function() {
-      // Initialize PayPal buttons
-      paypal.Buttons({
-        // Set up the transaction for Cement Mixer
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{
-              description: 'Heavy-Duty Cement Mixer',
-              amount: {
-                value: '450.00'
-              }
-            }]
-          });
-        },
-        // Finalize the transaction
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name + '!');
-            // Here you can redirect to a success page or show a confirmation message
-          });
-        },
-        onError: function(err) {
-          console.error('PayPal error:', err);
-          alert('There was an error processing your payment. Please try again.');
-        }
-      }).render('#paypal-button-cement-mixer');
+      const clientIdInput = document.getElementById('client-id-input');
+      const activateBtn = document.getElementById('activate-paypal');
+      const statusMessage = document.getElementById('status-message');
       
-      // Initialize PayPal buttons for Drill Machine
-      paypal.Buttons({
-        // Set up the transaction
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{
-              description: 'High-Speed Drill Machine',
-              amount: {
-                value: '120.00'
-              }
-            }]
-          });
-        },
-        // Finalize the transaction
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name + '!');
-          });
-        },
-        onError: function(err) {
-          console.error('PayPal error:', err);
-          alert('There was an error processing your payment. Please try again.');
-        }
-      }).render('#paypal-button-drill-machine');
-      
-      // Animation for product items
-      const productItems = document.querySelectorAll('.product-item');
-      productItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px)';
+      activateBtn.addEventListener('click', function() {
+        const clientId = clientIdInput.value.trim();
         
-        setTimeout(() => {
-          item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-          item.style.opacity = '1';
-          item.style.transform = 'translateY(0)';
-        }, 300 + (index * 200));
+        if (!clientId) {
+          statusMessage.innerHTML = '<span style="color: #d32f2f;">Please enter your PayPal Client ID</span>';
+          return;
+        }
+        
+        // Reinitialize PayPal SDK with the new client ID
+        const script = document.createElement('script');
+        script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD`;
+        document.head.appendChild(script);
+        
+        script.onload = function() {
+          // Initialize PayPal buttons for Cement Mixer
+          paypal.Buttons({
+            createOrder: function(data, actions) {
+              return actions.order.create({
+                purchase_units: [{
+                  description: 'Heavy-Duty Cement Mixer',
+                  amount: {
+                    value: '450.00'
+                  }
+                }]
+              });
+            },
+            onApprove: function(data, actions) {
+              return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+              });
+            },
+            onError: function(err) {
+              console.error('PayPal error:', err);
+              alert('There was an error processing your payment. Please try again.');
+            }
+          }).render('#paypal-button-cement-mixer');
+          
+          // Initialize PayPal buttons for Drill Machine
+          paypal.Buttons({
+            createOrder: function(data, actions) {
+              return actions.order.create({
+                purchase_units: [{
+                  description: 'High-Speed Drill Machine',
+                  amount: {
+                    value: '120.00'
+                  }
+                }]
+              });
+            },
+            onApprove: function(data, actions) {
+              return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+              });
+            },
+            onError: function(err) {
+              console.error('PayPal error:', err);
+              alert('There was an error processing your payment. Please try again.');
+            }
+          }).render('#paypal-button-drill-machine');
+          
+          statusMessage.innerHTML = '<span style="color: #2e7d32;">PayPal payments activated successfully!</span>';
+        };
+        
+        script.onerror = function() {
+          statusMessage.innerHTML = '<span style="color: #d32f2f;">Failed to load PayPal SDK. Please check your Client ID.</span>';
+        };
       });
     });
   </script>
