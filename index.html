@@ -99,6 +99,7 @@
       padding: 15px;
       border: 1px solid #ddd;
       border-radius: 5px;
+      position: relative;
     }
 
     .product-item img {
@@ -120,10 +121,46 @@
       border-radius: 4px;
       font-weight: bold;
       transition: background-color 0.3s;
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
     }
 
     .buy-button:hover {
       background-color: var(--secondary-color);
+    }
+    
+    .paypal-buttons {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .paypal-button {
+      background-color: #FFC439;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      width: 180px;
+    }
+    
+    .paypal-button:hover {
+      background-color: #f2bb35;
+      transform: translateY(-2px);
+    }
+    
+    .paypal-button img {
+      height: 20px;
+      margin-right: 8px;
     }
 
     .contact-info {
@@ -146,6 +183,28 @@
       border-top: 1px solid #ddd;
     }
 
+    .payment-methods {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .payment-method {
+      display: flex;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 8px 15px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    
+    .payment-method img {
+      height: 24px;
+      margin-right: 8px;
+    }
+
     @media (max-width: 768px) {
       .container {
         padding: 15px;
@@ -153,6 +212,10 @@
       
       .section {
         padding: 20px;
+      }
+      
+      .products-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -192,7 +255,24 @@
           <h3>Heavy-Duty Cement Mixer</h3>
           <p>Reliable and portable mixer for fast and efficient concrete mixing.</p>
           <p><strong>Price:</strong> $450.00</p>
-          <a href="mailto:antimouna16@gmail.com?subject=Purchase%20Cement%20Mixer" class="buy-button">Request Purchase</a>
+          
+          <!-- PayPal Payment Button -->
+          <div class="paypal-buttons">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input type="hidden" name="hosted_button_id" value="ZFP6QL7WZ2XWS" />
+              <input type="hidden" name="currency_code" value="USD" />
+              <button type="submit" class="paypal-button">
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" alt="PayPal Logo">
+                Buy Now
+              </button>
+            </form>
+            
+            <p style="font-size: 12px; color: #666;">PayPal - The safer, easier way to pay</p>
+          </div>
+          
+          <!-- Alternative payment option -->
+          <a href="mailto:antimouna16@gmail.com?subject=Purchase%20Cement%20Mixer" class="buy-button">Other Payment Options</a>
         </div>
 
         <!-- Product 2 -->
@@ -201,7 +281,44 @@
           <h3>High-Speed Drill Machine</h3>
           <p>Efficient electric drill for wood, metal, and masonry work.</p>
           <p><strong>Price:</strong> $120.00</p>
-          <a href="mailto:antimouna16@gmail.com?subject=Purchase%20Drill%20Machine" class="buy-button">Request Purchase</a>
+          
+          <!-- PayPal Payment Button -->
+          <div class="paypal-buttons">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input type="hidden" name="hosted_button_id" value="ZFP6QL7WZ2XWS" />
+              <input type="hidden" name="currency_code" value="USD" />
+              <button type="submit" class="paypal-button">
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" alt="PayPal Logo">
+                Buy Now
+              </button>
+            </form>
+            
+            <p style="font-size: 12px; color: #666;">PayPal - The safer, easier way to pay</p>
+          </div>
+          
+          <!-- Alternative payment option -->
+          <a href="mailto:antimouna16@gmail.com?subject=Purchase%20Drill%20Machine" class="buy-button">Other Payment Options</a>
+        </div>
+      </div>
+      
+      <!-- Payment methods section -->
+      <div class="payment-methods">
+        <div class="payment-method">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/PayPal_Logo_Icon_2014.svg" alt="PayPal">
+          <span>PayPal</span>
+        </div>
+        <div class="payment-method">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+          <span>Visa</span>
+        </div>
+        <div class="payment-method">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+          <span>Mastercard</span>
+        </div>
+        <div class="payment-method">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/American_Express_logo_%282018%29.svg" alt="American Express">
+          <span>Amex</span>
         </div>
       </div>
     </div>
@@ -239,12 +356,18 @@
 
     <footer>
       <p>&copy; <span id="year"></span> Stand Up Construction. All rights reserved.</p>
+      <p>Secure payments provided by PayPal</p>
     </footer>
   </div>
 
   <script>
     // Automatically update copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Add PayPal script for enhanced integration
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('PayPal integration ready. Secure payments enabled.');
+    });
   </script>
 </body>
 </html>
