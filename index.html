@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stand Up Construction | Building Strong & Smart</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+  <!-- PayPal SDK with YOUR Client ID inserted -->
+  <script src="https://www.paypal.com/sdk/js?client-id=ARzzonQX-oNKLu76gVaIxXHR8JK7wA2cp_B9cPc9HjHS6kiU61YWb7DZlHP74v7oecREsRuTF5EYlVgZ&currency=USD"></script>
   <style>
     :root {
       --primary-color: #006400;
@@ -247,59 +248,24 @@
       min-height: 50px;
     }
     
-    .client-id-instructions {
+    .paypal-success {
       background: #e8f5e9;
       border-left: 5px solid #4caf50;
       padding: 20px;
       border-radius: 0 12px 12px 0;
       margin: 30px 0;
+      text-align: center;
     }
     
-    .client-id-instructions h3 {
+    .paypal-success h3 {
       color: #2e7d32;
       margin-bottom: 15px;
     }
     
-    .client-id-instructions ol {
-      padding-left: 20px;
+    .paypal-success i {
+      font-size: 3rem;
+      color: #4caf50;
       margin-bottom: 15px;
-    }
-    
-    .client-id-instructions li {
-      margin-bottom: 10px;
-    }
-    
-    .client-id-form {
-      margin-top: 20px;
-      padding: 20px;
-      background: #f0f8ff;
-      border-radius: 10px;
-    }
-    
-    .client-id-form input {
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      width: 100%;
-      max-width: 400px;
-      margin: 10px 0;
-      font-size: 16px;
-    }
-    
-    .client-id-form button {
-      padding: 12px 25px;
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 16px;
-      transition: var(--transition);
-    }
-    
-    .client-id-form button:hover {
-      background: var(--secondary-color);
     }
 
     @media (max-width: 768px) {
@@ -354,22 +320,10 @@
     <div class="section">
       <h2>Quality Products for Sale</h2>
       
-      <div class="client-id-instructions">
-        <h3><i class="fas fa-info-circle"></i> How to Find Your PayPal Client ID</h3>
-        <ol>
-          <li>Log in to the <a href="https://developer.paypal.com" target="_blank">PayPal Developer Dashboard</a></li>
-          <li>Navigate to <strong>Dashboard</strong> → <strong>My Apps & Credentials</strong></li>
-          <li>Under <strong>REST API apps</strong>, select your app or create a new one</li>
-          <li>Find your <strong>Client ID</strong> under "Sandbox" or "Live" credentials</li>
-          <li>Copy the Client ID and enter it below to activate payments</li>
-        </ol>
-        
-        <div class="client-id-form">
-          <p><strong>Enter Your PayPal Client ID:</strong></p>
-          <input type="text" id="client-id-input" placeholder="Enter your PayPal Client ID">
-          <button id="activate-paypal">Activate PayPal Payments</button>
-          <p id="status-message" style="margin-top: 15px;"></p>
-        </div>
+      <div class="paypal-success">
+        <i class="fas fa-check-circle"></i>
+        <h3>PayPal Payments Activated!</h3>
+        <p>Your PayPal account is now integrated and ready to accept payments.</p>
       </div>
       
       <div class="products-grid">
@@ -381,9 +335,7 @@
           <span class="price-tag">$450.00</span>
           
           <!-- PayPal Button Container -->
-          <div class="paypal-button-container" id="paypal-button-cement-mixer">
-            <p>PayPal payments disabled. Enter your Client ID above to activate.</p>
-          </div>
+          <div class="paypal-button-container" id="paypal-button-cement-mixer"></div>
           
           <!-- Alternative payment option -->
           <a href="mailto:antimouna16@gmail.com?subject=Purchase%20Cement%20Mixer" class="buy-button">
@@ -399,9 +351,7 @@
           <span class="price-tag">$120.00</span>
           
           <!-- PayPal Button Container -->
-          <div class="paypal-button-container" id="paypal-button-drill-machine">
-            <p>PayPal payments disabled. Enter your Client ID above to activate.</p>
-          </div>
+          <div class="paypal-button-container" id="paypal-button-drill-machine"></div>
           
           <!-- Alternative payment option -->
           <a href="mailto:antimouna16@gmail.com?subject=Purchase%20Drill%20Machine" class="buy-button">
@@ -456,77 +406,51 @@
     
     // PayPal Integration
     document.addEventListener('DOMContentLoaded', function() {
-      const clientIdInput = document.getElementById('client-id-input');
-      const activateBtn = document.getElementById('activate-paypal');
-      const statusMessage = document.getElementById('status-message');
-      
-      activateBtn.addEventListener('click', function() {
-        const clientId = clientIdInput.value.trim();
-        
-        if (!clientId) {
-          statusMessage.innerHTML = '<span style="color: #d32f2f;">Please enter your PayPal Client ID</span>';
-          return;
+      // Initialize PayPal buttons for Cement Mixer
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              description: 'Heavy-Duty Cement Mixer',
+              amount: {
+                value: '450.00'
+              }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+        },
+        onError: function(err) {
+          console.error('PayPal error:', err);
+          alert('There was an error processing your payment. Please try again.');
         }
-        
-        // Reinitialize PayPal SDK with the new client ID
-        const script = document.createElement('script');
-        script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD`;
-        document.head.appendChild(script);
-        
-        script.onload = function() {
-          // Initialize PayPal buttons for Cement Mixer
-          paypal.Buttons({
-            createOrder: function(data, actions) {
-              return actions.order.create({
-                purchase_units: [{
-                  description: 'Heavy-Duty Cement Mixer',
-                  amount: {
-                    value: '450.00'
-                  }
-                }]
-              });
-            },
-            onApprove: function(data, actions) {
-              return actions.order.capture().then(function(details) {
-                alert('Transaction completed by ' + details.payer.name.given_name + '!');
-              });
-            },
-            onError: function(err) {
-              console.error('PayPal error:', err);
-              alert('There was an error processing your payment. Please try again.');
-            }
-          }).render('#paypal-button-cement-mixer');
-          
-          // Initialize PayPal buttons for Drill Machine
-          paypal.Buttons({
-            createOrder: function(data, actions) {
-              return actions.order.create({
-                purchase_units: [{
-                  description: 'High-Speed Drill Machine',
-                  amount: {
-                    value: '120.00'
-                  }
-                }]
-              });
-            },
-            onApprove: function(data, actions) {
-              return actions.order.capture().then(function(details) {
-                alert('Transaction completed by ' + details.payer.name.given_name + '!');
-              });
-            },
-            onError: function(err) {
-              console.error('PayPal error:', err);
-              alert('There was an error processing your payment. Please try again.');
-            }
-          }).render('#paypal-button-drill-machine');
-          
-          statusMessage.innerHTML = '<span style="color: #2e7d32;">PayPal payments activated successfully!</span>';
-        };
-        
-        script.onerror = function() {
-          statusMessage.innerHTML = '<span style="color: #d32f2f;">Failed to load PayPal SDK. Please check your Client ID.</span>';
-        };
-      });
+      }).render('#paypal-button-cement-mixer');
+      
+      // Initialize PayPal buttons for Drill Machine
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              description: 'High-Speed Drill Machine',
+              amount: {
+                value: '120.00'
+              }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+        },
+        onError: function(err) {
+          console.error('PayPal error:', err);
+          alert('There was an error processing your payment. Please try again.');
+        }
+      }).render('#paypal-button-drill-machine');
     });
   </script>
 </body>
